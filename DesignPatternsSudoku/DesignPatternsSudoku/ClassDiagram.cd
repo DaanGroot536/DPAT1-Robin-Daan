@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="State Pattern">
+    <Position X="8.917" Y="1.146" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Builder Pattern">
+    <Position X="2.323" Y="2.563" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Strategy pattern &amp; Factory pattern">
+    <Position X="3" Y="10" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Composite pattern">
+    <Position X="16" Y="3.406" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Visitor pattern">
+    <Position X="15.396" Y="7.969" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="DesignPatternsSudoku.Models.Builder.Builder">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAIAAAgAAKAAAAQAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\Builder\Builder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Builder.JigsawBuilder">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Builder\JigsawBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Builder.SamuraiBuilder">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAgAgCAAAAABAAAAABAAAAAA=</HashCode>
+      <FileName>Models\Builder\SamuraiBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Composite.Cell" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICCAAiAQAAAAAAgAAgAAAAAQAIAIAEBQGAgAAAIAAA=</HashCode>
+      <FileName>Models\Composite\Cell.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Composite.Cluster" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIAAAgAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Composite\Cluster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Composite.Coord">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Models\Composite\Coord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Factory.FileReaderFactory">
+    <Position X="0.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Factory\FileReaderFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Strategy.FourByFourFileReader" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\FourByFourFileReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Strategy.JigsawFileReader" BaseTypeListCollapsed="true">
+    <Position X="4" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\JigsawFileReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Strategy.NineByNineFileReader" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\NineByNineFileReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Strategy.SamuraiFileReader" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\SamuraiFileReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Strategy.SixBySixFileReader" BaseTypeListCollapsed="true">
+    <Position X="4" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\SixBySixFileReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Strategy.SudokuFileInfo">
+    <Position X="5.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAEgAAgAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\SudokuFileInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.State.CorrectionModeState">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\State\CorrectionModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.State.FinalModeState">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\State\FinalModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.State.HelpModeState">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\State\HelpModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.State.ModeState">
+    <Position X="7" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAIAAAAEAAA=</HashCode>
+      <FileName>Models\State\ModeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Puzzles.Puzzle">
+    <Position X="16.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\Puzzles\Puzzle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Models.Visitor.ComponentVisitor">
+    <Position X="13.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Visitor\ComponentVisitor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DesignPatternsSudoku.GameController">
+    <Position X="8.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAAIAAAgAAQAAAAAAAAAgAAAAEAAQAACQA=</HashCode>
+      <FileName>GameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.InputHandler">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>InputHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Player">
+    <Position X="10" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQIAAAAAAAAAAAAAAAAAAAAAAQABAAAAAgAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternsSudoku.Views.PuzzleView">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAACAAAAAACAAAAAQAEAAA=</HashCode>
+      <FileName>Views\PuzzleView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DesignPatternsSudoku.Models.Builder.IBuilder">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAgAAKAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Builder\IBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DesignPatternsSudoku.Models.Composite.IComponent">
+    <Position X="16" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Composite\IComponent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DesignPatternsSudoku.Models.Strategy.IFileReader">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\IFileReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DesignPatternsSudoku.Models.Visitor.IComponentVisitor">
+    <Position X="13.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Visitor\IComponentVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
