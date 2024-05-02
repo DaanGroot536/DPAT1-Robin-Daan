@@ -23,6 +23,9 @@ namespace DesignPatternsSudoku.Models.State
         {
             Console.Clear();
             List<Cell> leafs = puzzleView.Puzzle.GetLeafs();
+            int cellWidth = 3;
+            int cellHeight = 2;
+
             for (int y = 0; y < puzzleView.Puzzle.FileInfo.Size; y++)
             {
                 for (int z = 0; z < puzzleView.Puzzle.FileInfo.ClusterHeight; z++)
@@ -32,7 +35,11 @@ namespace DesignPatternsSudoku.Models.State
                         Cell cell = leafs.Find(leaf => leaf.Coord.X == y && leaf.Coord.Y == x);
                         for (int i = 1; i <= puzzleView.Puzzle.FileInfo.ClusterWidth; i++)
                         {
-
+                            if (puzzleView.Player.getXCoord() == y && puzzleView.Player.getYCoord() == x)
+                            {
+                                Console.BackgroundColor = ConsoleColor.Yellow;
+                                Console.ForegroundColor = ConsoleColor.Black;
+                            }
                             if (cell != null)
                             {
                                 if (cell.EnteredValue > 0)
@@ -41,53 +48,48 @@ namespace DesignPatternsSudoku.Models.State
                                     Console.ForegroundColor = ConsoleColor.White;
                                 }
 
-                                if (cell.PossibleNumbers.FirstOrDefault(x => x == (i + (puzzleView.Puzzle.FileInfo.ClusterWidth * z))) == 0)
+                                if (cell.PossibleNumbers.FirstOrDefault(num => num == (i + (puzzleView.Puzzle.FileInfo.ClusterWidth * z))) == 0)
                                 {
                                     if (cell.EnteredValue == (i + (puzzleView.Puzzle.FileInfo.ClusterWidth * z)))
                                     {
-                                        Console.Write($"{cell.EnteredValue}");
+                                        Console.Write($"{cell.EnteredValue}".PadLeft(cellWidth));
                                     }
                                     else
                                     {
-                                        Console.Write(" ");
+                                        Console.Write(" ".PadLeft(cellWidth));
                                     }
                                 }
                                 else
                                 {
                                     if (cell.EnteredValue == 0)
                                     {
-                                        Console.Write(i + (puzzleView.Puzzle.FileInfo.ClusterWidth * z));
+                                        Console.Write((i + (puzzleView.Puzzle.FileInfo.ClusterWidth * z)).ToString().PadLeft(cellWidth));
                                     }
                                     else
                                     {
-                                        Console.Write(" ");
+                                        Console.Write(" ".PadLeft(cellWidth));
                                     }
                                 }
                                 Console.ResetColor();
                             }
                             else
                             {
-                                Console.Write(".");
+                                Console.Write(".".PadLeft(cellWidth));
                             }
-
-                            if (puzzleView.Player.getXCoord() == y && puzzleView.Player.getYCoord() == x)
-                            {
-                                Console.BackgroundColor = ConsoleColor.Yellow;
-                                Console.ForegroundColor = ConsoleColor.Black;
-                            }
-
                         }
                         Console.Write("|");
                     }
-                    Console.WriteLine("");
+                    Console.WriteLine();
                 }
-                for (int i = 0; i < puzzleView.Puzzle.FileInfo.Size * 4; i++)
+
+                // Print horizontal dividers
+                for (int i = 0; i < puzzleView.Puzzle.FileInfo.Size * (cellWidth * puzzleView.Puzzle.FileInfo.ClusterWidth + 1) - 1; i++)
                 {
-                    Console.Write($"-");
+                    Console.Write("-");
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("");
+            Console.WriteLine();
             Console.WriteLine("Hulpgetallen stand - gebruik de spatiebalk om te wisselen");
         }
     }
