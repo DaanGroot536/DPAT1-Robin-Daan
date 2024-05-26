@@ -397,8 +397,8 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-bin
-obj
+bin/
+obj/
 .cache
 
 # JetBrains Rider
