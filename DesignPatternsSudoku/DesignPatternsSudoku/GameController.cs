@@ -30,7 +30,7 @@ namespace DesignPatternsSudoku
             FileReaderFactory factory = new FileReaderFactory();
 
 
-            string filePath = "./sudoku_files/puzzle.samurai";
+            string filePath = "./../../../sudoku_files/puzzle.samurai";
             SudokuFileInfo fileInfo = factory.CreateFileInfo(filePath);
 
             if (filePath.EndsWith(".samurai", StringComparison.OrdinalIgnoreCase))
