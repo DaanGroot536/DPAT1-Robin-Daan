@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "8pC9dhPdg5R7RVXi26jm+yMmp9XvvcCFyQg9TNEY46HNL9Fw7Uxt21CWEOE8aC9+5O7no6G+sTpJZBDwLmHerw==",
+  "dgSpecHash": "bQpo88YvqVeYYpIHZ0YTbrjVssWZg8H04b8WJyXRUs9VppyXJRvHHvkP/AIzpmF6QIB398LqwEMt4/H3By31cg==",
   "success": true,
-  "projectFilePath": "D:\\HBO\\Leerjaar_3\\Blok 12\\Design patterns\\sudoku\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Eigenaar\\Desktop\\School LOCAL\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Eigenaar\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\Eigenaar\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\Eigenaar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\Eigenaar\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.27\\microsoft.netcore.app.host.win-x64.6.0.27.nupkg.sha512"
+  ],
   "logs": []
 }

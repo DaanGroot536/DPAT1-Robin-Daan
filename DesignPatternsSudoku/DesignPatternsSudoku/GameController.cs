@@ -30,9 +30,17 @@ namespace DesignPatternsSudoku
             FileReaderFactory factory = new FileReaderFactory();
 
 
-            SudokuFileInfo fileInfo = factory.CreateFileInfo("./sudoku_files/puzzle.9x9");
+            string filePath = "./sudoku_files/puzzle.samurai";
+            SudokuFileInfo fileInfo = factory.CreateFileInfo(filePath);
 
-            _puzzle = new Builder(fileInfo).GetPuzzle();
+            if (filePath.EndsWith(".samurai", StringComparison.OrdinalIgnoreCase))
+            {
+                _puzzle = new SamuraiBuilder(fileInfo).GetPuzzle();
+            }
+            else
+            {
+                _puzzle = new Builder(fileInfo).GetPuzzle();
+            }
 
             PuzzleView = new PuzzleView(_puzzle, Player);
             PuzzleView.Print();

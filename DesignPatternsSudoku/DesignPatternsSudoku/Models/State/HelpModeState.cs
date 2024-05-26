@@ -74,7 +74,7 @@ namespace DesignPatternsSudoku.Models.State
                             }
                             else
                             {
-                                Console.Write(".".PadLeft(cellWidth));
+                                Console.Write(" ".PadLeft(cellWidth));
                             }
                         }
                         Console.Write("|");
