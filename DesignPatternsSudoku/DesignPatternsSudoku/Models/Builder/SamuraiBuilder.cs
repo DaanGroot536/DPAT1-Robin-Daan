@@ -6,11 +6,11 @@ namespace DesignPatternsSudoku.Models.Builder
 {
     public class SamuraiBuilder : Builder
     {
-        private int _subSudokuSize;
-        private int _subSudokuWidth;
-        private int _subSudokuHeight;
+        private int SubSudokuSize;
+        private int SubSudokuWidth;
+        private int SubSudokuHeight;
 
-        Coord[] _startPositions = new Coord[]
+        private readonly Coord[] StartPositions = new Coord[]
         {
             new Coord(0, 0),   // top left
             new Coord(0, 12),  // top right
@@ -21,68 +21,68 @@ namespace DesignPatternsSudoku.Models.Builder
 
         public SamuraiBuilder(SudokuFileInfo fileInfo) : base(fileInfo)
         {
-            _subSudokuSize = 81;
-            _subSudokuWidth = 9;
-            _subSudokuHeight = 9;
-            CreateGrid(fileInfo.Content);
-            CreateClusters();
-            SetPossibleNumbers(_puzzle);
+            SubSudokuSize = 81;
+            SubSudokuWidth = 9;
+            SubSudokuHeight = 9;
+            InitializeGrid(fileInfo.Content);
+            InitializeClusters();
+            DeterminePossibleNumbers(PuzzleInstance);
         }
-        override
-        public void CreateGrid(string input)
+
+        public override void InitializeGrid(string input)
         {
-            string[] subsudokus = new string[_startPositions.Length];
-            for (int i = 0; i < _startPositions.Length; i++)
+            string[] subsudokus = new string[StartPositions.Length];
+            for (int i = 0; i < StartPositions.Length; i++)
             {
-                subsudokus[i] = input.Substring(i * _subSudokuSize, _subSudokuSize);
+                subsudokus[i] = input.Substring(i * SubSudokuSize, SubSudokuSize);
             }
 
-            for (int i = 0; i < _startPositions.Length; i++)
+            for (int i = 0; i < StartPositions.Length; i++)
             {
-                for (int j = 0; j < _subSudokuSize; j++)
+                for (int j = 0; j < SubSudokuSize; j++)
                 {
-                    int row = _startPositions[i].X + j / _subSudokuWidth;
-                    int col = _startPositions[i].Y + j % _subSudokuHeight;
+                    int row = StartPositions[i].X + j / SubSudokuWidth;
+                    int col = StartPositions[i].Y + j % SubSudokuHeight;
                     int value = int.Parse(subsudokus[i][j].ToString());
-                    _grid[row, col] = new Cell(new Coord(row, col), value, Enumerable.Range(1, _fileInfo.Size).ToList());
+                    Grid[row, col] = new Cell(new Coord(row, col), value, Enumerable.Range(1, FileInfo.Size).ToList());
                 }
             }
         }
-        override
-        public void CreateClusters()
+
+        public override void InitializeClusters()
         {
-            for (int i = 0; i < _startPositions.Length; i++)
+            for (int i = 0; i < StartPositions.Length; i++)
             {
-                int startX = _startPositions[i].X;
-                int startY = _startPositions[i].Y;
+                int startX = StartPositions[i].X;
+                int startY = StartPositions[i].Y;
 
-                for (int x = startX; x < startX + _subSudokuWidth; x++)
+                for (int x = startX; x < startX + SubSudokuWidth; x++)
                 {
-                    Cluster row = new Cluster();
-                    Cluster col = new Cluster();
-                    Cluster block = new Cluster();
+                    Cluster rowCluster = new Cluster();
+                    Cluster colCluster = new Cluster();
+                    Cluster blockCluster = new Cluster();
 
-                    for (int y = startY; y < startY + _subSudokuHeight; y++)
+                    for (int y = startY; y < startY + SubSudokuHeight; y++)
                     {
                         int blockX = startX + y / 3;
                         int blockY = startY + y % 3;
 
-                        Cell rowCell = _grid[x, y];
-                        Cell colCell = _grid[y, x];
-                        Cell blockCell = _grid[blockX, blockY];
+                        Cell rowCell = Grid[x, y];
+                        Cell colCell = Grid[y, x];
+                        Cell blockCell = Grid[blockX, blockY];
 
-                        rowCell.AddCluster(row);
-                        colCell.AddCluster(col);
-                        blockCell.AddCluster(block);
+                        rowCell.AddCluster(rowCluster);
+                        colCell.AddCluster(colCluster);
+                        blockCell.AddCluster(blockCluster);
 
-                        row.Add(rowCell);
-                        col.Add(colCell);
-                        block.Add(blockCell);
+                        rowCluster.Add(rowCell);
+                        colCluster.Add(colCell);
+                        blockCluster.Add(blockCell);
                     }
 
-                    _puzzle.Children.Add(row);
-                    _puzzle.Children.Add(col);
-                    _puzzle.Children.Add(block);
+                    PuzzleInstance.Children.Add(rowCluster);
+                    PuzzleInstance.Children.Add(colCluster);
+                    PuzzleInstance.Children.Add(blockCluster);
                 }
             }
         }

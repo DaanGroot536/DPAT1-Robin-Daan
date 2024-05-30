@@ -1,9 +1,5 @@
 ﻿using DesignPatternsSudoku.Models.Visitor;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatternsSudoku.Models.Composite
 {
@@ -40,7 +36,7 @@ namespace DesignPatternsSudoku.Models.Composite
 
         public List<Cell> GetLeafs()
         {
-            List<Cell> leafs = new List<Cell> ();
+            var leafs = new List<Cell>();
             foreach (IComponent item in Children)
             {
                 leafs.AddRange(item.GetLeafs());

@@ -8,56 +8,60 @@ namespace DesignPatternsSudoku.Models.Builder
     {
         public JigsawBuilder(SudokuFileInfo fileInfo) : base(fileInfo)
         {
-            CreateGrid(fileInfo.Content);
-            CreateClusters();
-            SetPossibleNumbers(_puzzle);
+            InitializeGrid(fileInfo.Content);
+            InitializeClusters();
+            DeterminePossibleNumbers(PuzzleInstance);
         }
 
-        override
-        public void CreateGrid(string input)
+        public override void InitializeGrid(string input)
         {
-            string filteredInput = input.Replace("SumoCueV1=","");
+            string filteredInput = input.Replace("SumoCueV1=", "");
             string[] stringArray = filteredInput.Split("=");
-            Cluster[] clusters = new Cluster[9] { new Cluster(), new Cluster(), new Cluster(), new Cluster(), new Cluster(), new Cluster(), new Cluster(), new Cluster(), new Cluster() };
+            Cluster[] clusters = new Cluster[9]
+            {
+                new Cluster(), new Cluster(), new Cluster(), new Cluster(),
+                new Cluster(), new Cluster(), new Cluster(), new Cluster(), new Cluster()
+            };
 
             for (int i = 0; i < stringArray.Length; i++)
             {
-                int row = i / _fileInfo.Size;
-                int col = i % _fileInfo.Size;
+                int row = i / FileInfo.Size;
+                int col = i % FileInfo.Size;
                 Cell cell = new Cell(
                     new Coord(row, col),
-                    int.Parse(stringArray[i].Split("J")[0].ToString()),
-                    Enumerable.Range(1, _fileInfo.Size).ToList()
+                    int.Parse(stringArray[i].Split("J")[0]),
+                    Enumerable.Range(1, FileInfo.Size).ToList()
                 );
-                clusters[int.Parse(stringArray[i].Split("J")[1].ToString())].Add(cell);
-                cell.AddCluster(clusters[int.Parse(stringArray[i].Split("J")[1].ToString())]);
-                _grid[row, col] = cell;
+                int clusterIndex = int.Parse(stringArray[i].Split("J")[1]);
+                clusters[clusterIndex].Add(cell);
+                cell.AddCluster(clusters[clusterIndex]);
+                Grid[row, col] = cell;
             }
             foreach (var cluster in clusters)
             {
-                _puzzle.Add(cluster);
+                PuzzleInstance.Add(cluster);
             }
         }
-        override
-        public void CreateClusters()
+
+        public override void InitializeClusters()
         {
-            for (int x = 0; x < _fileInfo.Size; x++)
+            for (int x = 0; x < FileInfo.Size; x++)
             {
-                Cluster row = new Cluster();
-                Cluster col = new Cluster();
-                for (int y = 0; y < _fileInfo.Size; y++)
+                Cluster rowCluster = new Cluster();
+                Cluster colCluster = new Cluster();
+                for (int y = 0; y < FileInfo.Size; y++)
                 {
-                    Cell rowCell = _grid[x, y];
-                    Cell colCell = _grid[y, x];
+                    Cell rowCell = Grid[x, y];
+                    Cell colCell = Grid[y, x];
 
-                    rowCell.AddCluster(row);
-                    colCell.AddCluster(col);
+                    rowCell.AddCluster(rowCluster);
+                    colCell.AddCluster(colCluster);
 
-                    row.Add(rowCell);
-                    col.Add(colCell);
+                    rowCluster.Add(rowCell);
+                    colCluster.Add(colCell);
                 }
-                _puzzle.Add(row);
-                _puzzle.Add(col);
+                PuzzleInstance.Add(rowCluster);
+                PuzzleInstance.Add(colCluster);
             }
         }
     }

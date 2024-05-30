@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatternsSudoku.Models.Composite
+﻿namespace DesignPatternsSudoku.Models.Composite
 {
     public class Coord
     {
         public int X { get; set; }
-
         public int Y { get; set; }
 
         public Coord(int x, int y)
@@ -17,6 +10,5 @@ namespace DesignPatternsSudoku.Models.Composite
             X = x;
             Y = y;
         }
-
     }
 }

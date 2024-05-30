@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eigenaar\\Desktop\\School LOCAL\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj": {}
+    "C:\\School\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eigenaar\\Desktop\\School LOCAL\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj": {
+    "C:\\School\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eigenaar\\Desktop\\School LOCAL\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj",
+        "projectUniqueName": "C:\\School\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj",
         "projectName": "DesignPatternsSudoku",
-        "projectPath": "C:\\Users\\Eigenaar\\Desktop\\School LOCAL\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj",
-        "packagesPath": "C:\\Users\\Eigenaar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eigenaar\\Desktop\\School LOCAL\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\obj\\",
+        "projectPath": "C:\\School\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\DesignPatternsSudoku.csproj",
+        "packagesPath": "C:\\Users\\daang\\.nuget\\packages\\",
+        "outputPath": "C:\\School\\DPAT1\\DPAT1-Robin-Daan\\DesignPatternsSudoku\\DesignPatternsSudoku\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Eigenaar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\daang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -57,19 +57,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
+              "version": "[6.0.29, 6.0.29]"
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.27, 6.0.27]"
+              "version": "[6.0.29, 6.0.29]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
+              "version": "[6.0.29, 6.0.29]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
+              "version": "[6.0.29, 6.0.29]"
             }
           ],
           "frameworkReferences": {
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }
