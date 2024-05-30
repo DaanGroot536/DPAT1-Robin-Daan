@@ -1,9 +1,5 @@
 ﻿using DesignPatternsSudoku.Models.Composite;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DesignPatternsSudoku.Models.Puzzles;
 
 namespace DesignPatternsSudoku.Models.Visitor
@@ -34,11 +30,13 @@ namespace DesignPatternsSudoku.Models.Visitor
                 {
                     if (uniqueValues.Contains(cell.EnteredValue))
                     {
-                        if(!cell.IsGiven) cell.IsValid = false;
+                        if (!cell.IsGiven)
+                            cell.IsValid = false;
 
                         Cell duplicateCell = cells.Find(c => c.EnteredValue == cell.EnteredValue && c != cell);
 
-                        if (duplicateCell != null && !duplicateCell.IsGiven) duplicateCell.IsValid = false;
+                        if (duplicateCell != null && !duplicateCell.IsGiven)
+                            duplicateCell.IsValid = false;
                     }
                     else
                     {

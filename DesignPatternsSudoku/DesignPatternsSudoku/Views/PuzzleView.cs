@@ -2,10 +2,6 @@
 using DesignPatternsSudoku.Models.Puzzles;
 using DesignPatternsSudoku.Models.State;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatternsSudoku.Views
 {
@@ -24,7 +20,7 @@ namespace DesignPatternsSudoku.Views
             ModeState = new FinalModeState(this);
         }
 
-        public void changeMode(ModeState nextState)
+        public void ChangeMode(ModeState nextState)
         {
             ModeState = nextState;
         }

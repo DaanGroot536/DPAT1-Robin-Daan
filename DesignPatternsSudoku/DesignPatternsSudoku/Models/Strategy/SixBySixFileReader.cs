@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace DesignPatternsSudoku.Models.Strategy
 {
@@ -12,12 +9,12 @@ namespace DesignPatternsSudoku.Models.Strategy
         {
             string fileContent = File.ReadAllText(path);
 
-            SudokuFileInfo fileInfo = new(fileContent)
+            SudokuFileInfo fileInfo = new SudokuFileInfo(fileContent)
             {
                 ClusterWidth = 3,
                 ClusterHeight = 2,
                 Size = 6,
-                FileExtension = path.Split(".").Reverse().First()
+                FileExtension = Path.GetExtension(path)
             };
             return fileInfo;
         }

@@ -7,8 +7,11 @@ namespace DesignPatternsSudoku.Models.State
 {
     public class FinalModeState : ModeState
     {
+        private PuzzleView puzzleView;
+
         public FinalModeState(PuzzleView puzzleView) : base(puzzleView)
         {
+            this.puzzleView = puzzleView;
         }
 
         public override void ChangeState()

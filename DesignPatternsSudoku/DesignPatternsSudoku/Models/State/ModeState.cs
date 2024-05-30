@@ -4,11 +4,11 @@ namespace DesignPatternsSudoku.Models.State
 {
     public abstract class ModeState
     {
-        protected PuzzleView PuzzleView;
+        protected PuzzleView puzzleView;
 
         public ModeState(PuzzleView puzzleView)
         {
-            PuzzleView = puzzleView;
+            this.puzzleView = puzzleView;
         }
 
         public abstract void Print();

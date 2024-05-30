@@ -16,6 +16,7 @@ namespace DesignPatternsSudoku
             get { return _coords; }
             set { _coords = value; }
         }
+
         public Player()
         {
             _coords = new Coord(0, 0);

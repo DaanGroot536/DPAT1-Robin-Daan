@@ -1,4 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-using DesignPatternsSudoku;
+﻿using DesignPatternsSudoku;
 
 GameController gameController = new GameController();
