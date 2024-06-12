@@ -7,6 +7,6 @@ namespace DesignPatternsSudoku.Models.Composite
     {
         bool Check();
         List<Cell> GetLeafs();
-        void Accept(IComponentVisitor visitor);
+        void Accept(IVisitor visitor);
     }
 }

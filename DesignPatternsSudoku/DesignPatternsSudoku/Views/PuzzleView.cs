@@ -25,6 +25,17 @@ namespace DesignPatternsSudoku.Views
             ModeState = nextState;
         }
 
+        public bool CheckGameEnd()
+        {
+            if (this.Puzzle.Check())
+            {
+                Console.WriteLine("You have won!!!");
+                return true;
+            }
+            else
+                return false;
+        }
+
         public void Print()
         {
             ModeState.Print();

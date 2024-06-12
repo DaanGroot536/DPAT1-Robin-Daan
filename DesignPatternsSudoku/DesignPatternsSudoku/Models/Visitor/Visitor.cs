@@ -4,7 +4,7 @@ using DesignPatternsSudoku.Models.Puzzles;
 
 namespace DesignPatternsSudoku.Models.Visitor
 {
-    public class ComponentVisitor : IComponentVisitor
+    public class Visitor : IVisitor
     {
         public void VisitCluster(Cluster cluster)
         {

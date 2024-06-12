@@ -40,7 +40,7 @@ namespace DesignPatternsSudoku.Models.Composite
             return new List<Cell> { this };
         }
 
-        public void Accept(IComponentVisitor visitor)
+        public void Accept(IVisitor visitor)
         {
             throw new NotImplementedException();
         }

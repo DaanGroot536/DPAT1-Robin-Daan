@@ -29,7 +29,7 @@ namespace DesignPatternsSudoku.Models.Composite
             Children.Add(component);
         }
 
-        public void Accept(IComponentVisitor visitor)
+        public void Accept(IVisitor visitor)
         {
             visitor.VisitCluster(this);
         }

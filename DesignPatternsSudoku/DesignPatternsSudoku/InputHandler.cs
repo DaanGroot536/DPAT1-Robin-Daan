@@ -16,7 +16,7 @@ namespace DesignPatternsSudoku
             _gameController = gameController;
         }
 
-        public void GetInput()
+        public bool GetInput()
         {
             ConsoleKeyInfo key = Console.ReadKey();
             if (char.IsDigit(key.KeyChar))
@@ -27,7 +27,10 @@ namespace DesignPatternsSudoku
             {
                 HandleNonDigitKey(key);
             }
+            if (_gameController.PuzzleView.CheckGameEnd())
+                return true;
             _gameController.PuzzleView.Print();
+            return false;
         }
 
         private void HandleNonDigitKey(ConsoleKeyInfo key)
@@ -47,7 +50,7 @@ namespace DesignPatternsSudoku
                     _gameController.MovePlayer(new Coord(_gameController.Player.Coords.X, _gameController.Player.Coords.Y - 1));
                     break;
                 case ConsoleKey.C:
-                    ComponentVisitor visitor = new ComponentVisitor();
+                    Visitor visitor = new Visitor();
                     _gameController.Puzzle.Accept(visitor);
                     break;
                 case ConsoleKey.Spacebar:

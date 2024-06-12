@@ -17,7 +17,7 @@ namespace TestProject
                 cells.AddRange(cluster.GetLeafs());
             }
 
-            var visitor = new ComponentVisitor();
+            var visitor = new Visitor();
 
             // Act
             visitor.VisitCluster(puzzle);
@@ -56,7 +56,7 @@ namespace TestProject
                 }
             }
 
-            var visitor = new ComponentVisitor();
+            var visitor = new Visitor();
 
             // Act
             visitor.VisitCluster(cluster);

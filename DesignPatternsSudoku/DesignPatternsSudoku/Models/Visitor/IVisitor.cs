@@ -2,7 +2,7 @@
 
 namespace DesignPatternsSudoku.Models.Visitor
 {
-    public interface IComponentVisitor
+    public interface IVisitor
     {
         void VisitCluster(Cluster cluster);
     }

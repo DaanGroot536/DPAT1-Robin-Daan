@@ -55,7 +55,8 @@ namespace DesignPatternsSudoku
         {
             while (_playing)
             {
-                inputHandler.GetInput();
+                if (inputHandler.GetInput())
+                    _playing = false;
             }
         }
 
