@@ -28,9 +28,15 @@ namespace DesignPatternsSudoku
                 HandleNonDigitKey(key);
             }
             if (_gameController.PuzzleView.CheckGameEnd())
+            {
+                _gameController.PuzzleView.Print();
                 return true;
-            _gameController.PuzzleView.Print();
-            return false;
+            }
+            else
+            {
+                _gameController.PuzzleView.Print();
+                return false;
+            }
         }
 
         private void HandleNonDigitKey(ConsoleKeyInfo key)

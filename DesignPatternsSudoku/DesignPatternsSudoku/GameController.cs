@@ -29,7 +29,7 @@ namespace DesignPatternsSudoku
             inputHandler = new InputHandler(this);
             FileReaderFactory factory = new FileReaderFactory();
 
-            string filePath = "./../../../sudoku_files/puzzle.4x4";
+            string filePath = "./../../../sudoku_files/puzzle.samurai";
             SudokuFileInfo fileInfo = factory.CreateFileInfo(filePath);
 
             if (filePath.EndsWith(".samurai", StringComparison.OrdinalIgnoreCase))
