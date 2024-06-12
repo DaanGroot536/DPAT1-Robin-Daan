@@ -34,15 +34,28 @@ namespace DesignPatternsSudoku
 
             if (filePath.EndsWith(".samurai", StringComparison.OrdinalIgnoreCase))
             {
-                _puzzle = new SamuraiBuilder(fileInfo).GetPuzzle();
+                SamuraiBuilder builder = new SamuraiBuilder(fileInfo);
+                builder.InitializeGrid(fileInfo.Content);
+                builder.InitializeClusters();
+                builder.DeterminePossibleNumbers(builder.GetPuzzle());
+                _puzzle = builder.GetPuzzle();
             }
             else if (filePath.EndsWith(".jigsaw", StringComparison.OrdinalIgnoreCase))
             {
-                _puzzle = new JigsawBuilder(fileInfo).GetPuzzle();
+                JigsawBuilder builder = new JigsawBuilder(fileInfo);
+                builder.InitializeGrid(fileInfo.Content);
+                builder.InitializeClusters();
+                builder.DeterminePossibleNumbers(builder.GetPuzzle());
+                _puzzle = builder.GetPuzzle();
             }
             else
             {
-                _puzzle = new NormalBuilder(fileInfo).GetPuzzle();
+                NormalBuilder builder = new NormalBuilder(fileInfo);
+                builder.InitializeGrid(fileInfo.Content);
+                builder.InitializeClusters();
+                builder.DeterminePossibleNumbers(builder.GetPuzzle());
+                builder.SetCorrectValues();
+                _puzzle = builder.GetPuzzle();
             }
 
             PuzzleView = new PuzzleView(_puzzle, Player);

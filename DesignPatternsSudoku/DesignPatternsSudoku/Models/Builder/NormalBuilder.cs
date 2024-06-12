@@ -18,10 +18,6 @@ namespace DesignPatternsSudoku.Models.Builder
             PuzzleInstance = new Puzzle(fileInfo);
             FileInfo = fileInfo;
             Grid = new Cell[fileInfo.Size, fileInfo.Size];
-            InitializeGrid(fileInfo.Content);
-            InitializeClusters();
-            DeterminePossibleNumbers(PuzzleInstance);
-            SetCorrectValues();
         }
 
         public virtual void InitializeGrid(string input)
@@ -107,7 +103,7 @@ namespace DesignPatternsSudoku.Models.Builder
             }
         }
 
-        private void SetCorrectValues()
+        public void SetCorrectValues()
         {
             int[,] solutionGrid = new int[FileInfo.Size, FileInfo.Size];
             for (int row = 0; row < FileInfo.Size; row++)

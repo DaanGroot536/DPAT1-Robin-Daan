@@ -8,9 +8,6 @@ namespace DesignPatternsSudoku.Models.Builder
     {
         public JigsawBuilder(SudokuFileInfo fileInfo) : base(fileInfo)
         {
-            InitializeGrid(fileInfo.Content);
-            InitializeClusters();
-            DeterminePossibleNumbers(PuzzleInstance);
         }
 
         public override void InitializeGrid(string input)
