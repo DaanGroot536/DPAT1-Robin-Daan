@@ -32,7 +32,10 @@ namespace DesignPatternsSudoku.Models.Composite
 
         public bool Check()
         {
-            return CorrectValue == EnteredValue;
+            if (CorrectValue == 0)
+                return false;
+            else
+                return CorrectValue == EnteredValue;
         }
 
         public List<Cell> GetLeafs()

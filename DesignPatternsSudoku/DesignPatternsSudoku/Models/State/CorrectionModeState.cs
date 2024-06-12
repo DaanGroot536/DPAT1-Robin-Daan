@@ -51,7 +51,7 @@ namespace DesignPatternsSudoku.Models.State
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.ForegroundColor = ConsoleColor.Black;
                             }
-                            else if (!cell.IsValid)
+                            else if (!cell.Check())
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.ForegroundColor = ConsoleColor.White;

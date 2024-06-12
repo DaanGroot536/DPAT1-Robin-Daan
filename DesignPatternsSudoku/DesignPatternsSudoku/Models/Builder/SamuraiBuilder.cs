@@ -1,6 +1,9 @@
 ﻿using DesignPatternsSudoku.Models.Composite;
 using DesignPatternsSudoku.Models.Puzzles;
 using DesignPatternsSudoku.Models.Strategy;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DesignPatternsSudoku.Models.Builder
 {
@@ -24,9 +27,6 @@ namespace DesignPatternsSudoku.Models.Builder
             SubSudokuSize = 81;
             SubSudokuWidth = 9;
             SubSudokuHeight = 9;
-            InitializeGrid(fileInfo.Content);
-            InitializeClusters();
-            DeterminePossibleNumbers(PuzzleInstance);
         }
 
         public override void InitializeGrid(string input)
@@ -64,20 +64,23 @@ namespace DesignPatternsSudoku.Models.Builder
 
                     for (int y = startY; y < startY + SubSudokuHeight; y++)
                     {
-                        int blockX = startX + y / 3;
-                        int blockY = startY + y % 3;
+                        int blockX = startX + (y / 3);
+                        int blockY = startY + (y % 3);
 
-                        Cell rowCell = Grid[x, y];
-                        Cell colCell = Grid[y, x];
-                        Cell blockCell = Grid[blockX, blockY];
+                        if (Grid[x, y] != null)
+                        {
+                            Cell rowCell = Grid[x, y];
+                            Cell colCell = Grid[y, x];
+                            Cell blockCell = Grid[blockX, blockY];
 
-                        rowCell.AddCluster(rowCluster);
-                        colCell.AddCluster(colCluster);
-                        blockCell.AddCluster(blockCluster);
+                            rowCell.AddCluster(rowCluster);
+                            colCell.AddCluster(colCluster);
+                            blockCell.AddCluster(blockCluster);
 
-                        rowCluster.Add(rowCell);
-                        colCluster.Add(colCell);
-                        blockCluster.Add(blockCell);
+                            rowCluster.Add(rowCell);
+                            colCluster.Add(colCell);
+                            blockCluster.Add(blockCell);
+                        }
                     }
 
                     PuzzleInstance.Children.Add(rowCluster);
@@ -85,6 +88,91 @@ namespace DesignPatternsSudoku.Models.Builder
                     PuzzleInstance.Children.Add(blockCluster);
                 }
             }
+        }
+
+        public override void SetCorrectValues()
+        {
+            int[,] solutionGrid = new int[FileInfo.Size, FileInfo.Size];
+            for (int row = 0; row < FileInfo.Size; row++)
+            {
+                for (int col = 0; col < FileInfo.Size; col++)
+                {
+                    if (Grid[row, col] != null)
+                    {
+                        solutionGrid[row, col] = Grid[row, col].EnteredValue;
+                    }
+                }
+            }
+
+            if (Solve(solutionGrid, 0, 0))
+            {
+                for (int row = 0; row < FileInfo.Size; row++)
+                {
+                    for (int col = 0; col < FileInfo.Size; col++)
+                    {
+                        if (Grid[row, col] != null)
+                        {
+                            Grid[row, col].CorrectValue = solutionGrid[row, col];
+                        }
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("No solution found for the given Samurai Sudoku puzzle.");
+            }
+        }
+
+        private bool Solve(int[,] grid, int row, int col)
+        {
+            if (row == FileInfo.Size) return true;
+            if (col == FileInfo.Size) return Solve(grid, row + 1, 0);
+
+            if (grid[row, col] != 0)
+            {
+                return Solve(grid, row, col + 1);
+            }
+
+            foreach (var num in Grid[row, col].PossibleNumbers)
+            {
+                if (IsValid(grid, row, col, num))
+                {
+                    grid[row, col] = num;
+                    if (Solve(grid, row, col + 1))
+                    {
+                        return true;
+                    }
+                    grid[row, col] = 0;
+                }
+            }
+            return false;
+        }
+
+        private bool IsValid(int[,] grid, int row, int col, int num)
+        {
+            for (int x = 0; x < FileInfo.Size; x++)
+            {
+                if (grid[row, x] == num || grid[x, col] == num)
+                {
+                    return false;
+                }
+            }
+
+            int startRow = row / FileInfo.ClusterHeight * FileInfo.ClusterHeight;
+            int startCol = col / FileInfo.ClusterWidth * FileInfo.ClusterWidth;
+
+            for (int i = 0; i < FileInfo.ClusterHeight; i++)
+            {
+                for (int j = 0; j < FileInfo.ClusterWidth; j++)
+                {
+                    if (grid[startRow + i, startCol + j] == num)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }

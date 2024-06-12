@@ -103,7 +103,7 @@ namespace DesignPatternsSudoku.Models.Builder
             }
         }
 
-        public void SetCorrectValues()
+        public virtual void SetCorrectValues()
         {
             int[,] solutionGrid = new int[FileInfo.Size, FileInfo.Size];
             for (int row = 0; row < FileInfo.Size; row++)

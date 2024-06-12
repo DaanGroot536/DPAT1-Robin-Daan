@@ -9,5 +9,6 @@ namespace DesignPatternsSudoku.Models.Builder
         void InitializeGrid(string input);
         void DeterminePossibleNumbers(Cluster mainCluster);
         Puzzle GetPuzzle();
+        void SetCorrectValues();
     }
 }

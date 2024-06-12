@@ -38,6 +38,7 @@ namespace DesignPatternsSudoku
                 builder.InitializeGrid(fileInfo.Content);
                 builder.InitializeClusters();
                 builder.DeterminePossibleNumbers(builder.GetPuzzle());
+                //builder.SetCorrectValues();
                 _puzzle = builder.GetPuzzle();
             }
             else if (filePath.EndsWith(".jigsaw", StringComparison.OrdinalIgnoreCase))
