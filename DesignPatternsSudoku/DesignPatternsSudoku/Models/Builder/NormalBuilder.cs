@@ -7,13 +7,13 @@ using System.Linq;
 
 namespace DesignPatternsSudoku.Models.Builder
 {
-    public class Builder : IBuilder
+    public class NormalBuilder : IBuilder
     {
         protected Puzzle PuzzleInstance { get; set; }
         protected SudokuFileInfo FileInfo;
         protected Cell[,] Grid;
 
-        public Builder(SudokuFileInfo fileInfo)
+        public NormalBuilder(SudokuFileInfo fileInfo)
         {
             PuzzleInstance = new Puzzle(fileInfo);
             FileInfo = fileInfo;

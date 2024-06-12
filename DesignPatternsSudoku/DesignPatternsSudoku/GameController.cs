@@ -29,16 +29,20 @@ namespace DesignPatternsSudoku
             inputHandler = new InputHandler(this);
             FileReaderFactory factory = new FileReaderFactory();
 
-            string filePath = "./../../../sudoku_files/puzzle.samurai";
+            string filePath = "./../../../sudoku_files/puzzle.4x4";
             SudokuFileInfo fileInfo = factory.CreateFileInfo(filePath);
 
             if (filePath.EndsWith(".samurai", StringComparison.OrdinalIgnoreCase))
             {
                 _puzzle = new SamuraiBuilder(fileInfo).GetPuzzle();
             }
+            else if (filePath.EndsWith(".jigsaw", StringComparison.OrdinalIgnoreCase))
+            {
+                _puzzle = new JigsawBuilder(fileInfo).GetPuzzle();
+            }
             else
             {
-                _puzzle = new Builder(fileInfo).GetPuzzle();
+                _puzzle = new NormalBuilder(fileInfo).GetPuzzle();
             }
 
             PuzzleView = new PuzzleView(_puzzle, Player);

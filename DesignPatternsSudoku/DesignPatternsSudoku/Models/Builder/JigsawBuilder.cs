@@ -4,7 +4,7 @@ using DesignPatternsSudoku.Models.Strategy;
 
 namespace DesignPatternsSudoku.Models.Builder
 {
-    public class JigsawBuilder : Builder
+    public class JigsawBuilder : NormalBuilder
     {
         public JigsawBuilder(SudokuFileInfo fileInfo) : base(fileInfo)
         {

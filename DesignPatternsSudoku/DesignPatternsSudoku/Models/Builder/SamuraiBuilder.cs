@@ -4,7 +4,7 @@ using DesignPatternsSudoku.Models.Strategy;
 
 namespace DesignPatternsSudoku.Models.Builder
 {
-    public class SamuraiBuilder : Builder
+    public class SamuraiBuilder : NormalBuilder
     {
         private int SubSudokuSize;
         private int SubSudokuWidth;
